@@ -1,0 +1,36 @@
+name: 中青看点
+on:
+    # push:
+    #     branches:
+    #         - master
+    schedule:
+        - cron: "0,31 * * * *"
+    workflow_dispatch:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use Node.js 14.x
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.x
+            - name: npm install
+              run: |
+                  npm install
+            - name: "运行 【中青2】"
+              run: |
+                node xlcsecret-All.js
+              env:
+                  YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
+                  YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
+                  YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
+                  YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
+                  EFORK: ${{ secrets.EFORK }}
+                  GITHUB: ${{ secrets.GITHUB }}
+                  XLC: ${{ secrets.XLC }}
+                 #YOUTH_new/main/
+                  SYNCURL: youth.js
+                  TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+                  TG_USER_ID: ${{ secrets.TG_USER_ID }}
