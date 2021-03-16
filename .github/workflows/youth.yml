@@ -39,4 +39,3 @@ jobs:
           PUSH_KEY: ${{ secrets.PUSH_KEY}}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN}}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET}}
-          TG_PROXY_PORT: ${{ secrets.TG_PROXY_PORT}}
