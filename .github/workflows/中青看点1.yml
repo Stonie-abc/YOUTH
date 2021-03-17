@@ -30,7 +30,7 @@ jobs:
           npm install
       - name: '运行 【中青看点】'
         run: |
-          node youth1.js
+          node youth2.js
         env:
           YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
           TZ: Asia/shanghai
