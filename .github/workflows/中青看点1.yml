@@ -14,10 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
-    env:
-        YOUTH_HEADER: ${{ secrets.YOUTH_HEADER }}
-        YOUTH_ARTBODY: ${{ secrets.YOUTH_ARTBODY }}
-        YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -30,11 +27,9 @@ jobs:
         run: |
           npm install
       - name: '运行 【中青看点】'
-        if: env.YOUTH_HEADER
         run: |
           node youth1.js
         env:
-          YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
           TZ: Asia/shanghai
           PUSH_KEY: ${{ secrets.PUSH_KEY}}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN}}
