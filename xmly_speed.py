@@ -26,7 +26,7 @@ BARK = ''                   # bark服务,自行搜索; secrets可填;形如jfjqx
 SCKEY = ''                  # Server酱的SCKEY; secrets可填
 TG_BOT_TOKEN = ''           # telegram bot token 自行申请
 TG_USER_ID = ''             # telegram 用户ID
-QYWX_KEY = 'ww50f4112674fb4a95,JR90VfrNFKrGMOxhxaV8cVRoB-yeT-1g7NBQTxEINNw,XuXiaoBo,1000005,2ynCHA1xb0qUw50lhOdJxpywcby3OwWES5sBujBXMN1T_1OJNn51MZVSZbUeQTSk0'               # 微信机器人
+QYWX_KEY = ''               # 微信机器人
 ###################################################
 # 对应方案1:  GitHub action自动运行,此处无需填写;
 if "XMLY_SPEED_COOKIE" in os.environ:
