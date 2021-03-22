@@ -32,9 +32,8 @@ jobs:
       - name: '运行 【中青看点】'
         if: env.YOUTH_HEADER
         run: |
-          node onlyOneExecute.js
+          node Stonie-abc/YOUTH/su/task/youth.js
         env:
           YOUTH_NOTIFY_CONTROL: ${{ secrets.YOUTH_NOTIFY_CONTROL }}
           TZ: Asia/shanghai
           QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
-          SYNCURL: https://github.com/Stonie-abc/YOUTH/blob/su/Task/youth.js
