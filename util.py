@@ -19,7 +19,7 @@ from urllib3.util import Retry
 import re
 
 # 通知服务
-BARK = ''                                                                 # bark服务,自行搜索; secrets可填;
+BARK = ''                                                                 # bark服务,此参数如果以http或者https开头则判定为自建bark服务; secrets可填;
 SCKEY = ''                                                                # Server酱的SCKEY; secrets可填
 TG_BOT_TOKEN = ''                                                         # tg机器人的TG_BOT_TOKEN; secrets可填
 TG_USER_ID = ''                                                           # tg机器人的TG_USER_ID; secrets可填
@@ -27,7 +27,7 @@ TG_PROXY_IP = ''                                                          # tg�
 TG_PROXY_PORT = ''                                                        # tg机器人的TG_PROXY_PORT; secrets可填
 DD_BOT_ACCESS_TOKEN = ''                                                  # 钉钉机器人的DD_BOT_ACCESS_TOKEN; secrets可填
 DD_BOT_SECRET = ''                                                        # 钉钉机器人的DD_BOT_SECRET; secrets可填
-QYWX_APP = ''                                                             # 企业微信应用的QYWX_APP; secrets可填 参考http://note.youdao.com/s/HMiudGkb
+QYWX_APP = ''                  # 企业微信应用的QYWX_APP; secrets可填 参考http://note.youdao.com/s/HMiudGkb
 
 notify_mode = []
 
@@ -67,8 +67,12 @@ def bark(title, content):
         print("bark服务的bark_token未设置!!\n取消推送")
         return
     print("bark服务启动")
-    response = requests.get(
-        f"""https://api.day.app/{BARK}/{title}/{content}""").json()
+    url = None
+    if BARK.startswith('http'):
+      url = f"""{BARK}/{title}/{content}"""
+    else:
+      url = f"""https://api.day.app/{BARK}/{title}/{content}"""
+    response = requests.get(url).json()
     if response['code'] == 200:
         print('推送成功！')
     else:
