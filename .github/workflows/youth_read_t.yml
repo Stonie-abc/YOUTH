@@ -27,10 +27,10 @@ jobs:
         run: |
           npm install
           
-      - name: '运行 【中青看点自动阅读】'
-        if: env.YOUTH_READ
+      - name: '运行 【中青看点自动阅读T】'
+        if: env.YOUTH_READ_T
         run: |
-          node Youth_Read_T.js
+          node YOUTH_READ_T.js
         env:
           YOUTH_READ: ${{ secrets.YOUTH_READ_T }}
           YOUTH_ATIME: ${{ secrets.YOUTH_ATIME }}
